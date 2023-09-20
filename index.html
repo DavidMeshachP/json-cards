@@ -5,102 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
-    <script >    
+
+    <script>
         fetch('card-data.json')
-            .then(function(response){
+            .then(function (response) {
                 return response.json();
             })
-            .then(function(data){
-
-            let containerOne=document.createElement(data.containr.elemntName);
-            containerOne.style.width=data.containr.widt;
-            containerOne.style.height=data.containr.heigt;
-            containerOne.style.display=data.containr.display;
-            containerOne.style.flexDirection=data.containr.flexDirection;
-            containerOne.style.padding=data.containr.padding;
-
-            let cardOne=document.createElement(data.card_one.elemntName);
-            cardOne.style.width=data.card_one.widthOfDiv;
-            cardOne.style.height=data.card_one.heightOfDiv;
-            cardOne.style.display=data.card_one.display;
-            cardOne.style.backgroundColor=data.card_one.divColor;
-            cardOne.style.margin=data.card_one.marginOfDiv;
-            cardOne.style.borderRadius=data.card_one.borderRadius;
-
-            let image=document.createElement(data.card_one.imagTag);
-            image.setAttribute("src",data.card_one.imag);
-            image.style.height=data.card_one.imagHeight;
-            image.style.width=data.card_one.imagWidth;
-            image.style.padding=data.card_one.imagPadding;
-
-            let cardOneWords=document.createElement(data.card_one.elemntName);
-            cardOneWords.style.display=data.card_one.display;
-            cardOneWords.style.flexDirection=data.card_one.flexDirections;
-
-            let cardOneHeading=document.createElement(data.card_one.headingTwoTag);
-            cardOneHeading.textContent=data.card_one.headingTwo;
-
-            let cardOneSpan=document.createElement(data.card_one.spanTag);
-            cardOneSpan.textContent=data.card_one.span;
-
-            let cardTwo=document.createElement(data.card_two.elemntName);
-            cardTwo.style.width=data.card_two.widthOfDiv;
-            cardTwo.style.height=data.card_two.heightOfDiv;
-            cardTwo.style.backgroundColor=data.card_two.divColor;
-            cardTwo.style.display=data.card_two.display;
-            cardTwo.style.color=data.card_two.fontColor;
-            cardTwo.style.justifyContent=data.card_two.justifyElements;
-            cardTwo.style.margin=data.card_two.marginOfDiv;
-            cardTwo.style.borderRadius=data.card_two.borderRadius;
-            cardTwo.style.transition=data.card_two.transition;
-
-            cardTwo.addEventListener('mouseover',function(){
-                imageCardTwo.style.transform=data.card_two.transform;
-            });
-            cardTwo.addEventListener('mouseout',function(){
-                imageCardTwo.style.transform=data.card_two.transformBack;
-            });
-
-            let cardTwoWords=document.createElement(data.card_two.elemntName);
-            cardTwoWords.style.display=data.card_two.display;
-            cardTwoWords.style.flexDirection=data.card_two.flexDirections;
-            cardTwoWords.style.marginLeft=data.card_two.marginLeftForWordsDiv;
-
-            let cardTwoHeading=document.createElement(data.card_two.headingTwoTag);
-            cardTwoHeading.textContent=data.card_two.headingTwo;
-
-            let cardTwoSpan=document.createElement(data.card_two.spanTag);
-            cardTwoSpan.textContent=data.card_two.span;
-
-            let imageCardTwo=document.createElement(data.card_two.imagTag);
-            imageCardTwo.setAttribute("src",data.card_two.imag);
-            imageCardTwo.style.height=data.card_two.imagHeight;
-            imageCardTwo.style.width=data.card_two.imagWidth;
-            imageCardTwo.style.marginRight=data.card_two.marginRightForImage;
-            imageCardTwo.style.paddingTop=data.card_two.paddingTop;
-
-            document.body.style.margin = data.bodyA.margin;
-            document.body.style.backgroundColor=data.bodyA.backgroundColor;
-
-            document.body.appendChild(containerOne);
-
-            containerOne.appendChild(cardOne);
-            cardOne.appendChild(image);
-            cardOne.appendChild(cardOneWords);
-            cardOneWords.appendChild(cardOneHeading);
-            cardOneWords.appendChild(cardOneSpan);
-
-            containerOne.appendChild(cardTwo);
-            cardTwo.appendChild(cardTwoWords);
-            cardTwoWords.appendChild(cardTwoHeading);
-            cardTwoWords.appendChild(cardTwoSpan);
-            cardTwo.appendChild(imageCardTwo);
-        })       
-
+            .then(function (data) {
+                let body = document.body;
+                json(data, body);
+                function json(data, body) {
+                    for (let x in data) {
+                        let element;
+                        if (data.elementType) {
+                            element = document.createElement(data.elementType);
+                            body.appendChild(element);
+                        }
+                        if (data.className) {
+                            element.className = data.className;
+                        }
+                        if (data.src) {
+                            element.src = data.src;
+                        }
+                        if (data.textContent) {
+                            element.textContent = data.textContent;
+                        }
+                        if (data.children) {
+                            for (x of data.children) {
+                                json(x, element);
+                            }
+                        }
+                        return;
+                        // console.log(document.body.childNodes);
+                    }
+                }
+            })
     </script>
 
 </body>

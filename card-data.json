@@ -1,62 +1,56 @@
 {
-    "bodyA":{
-        "backgroundColor":"grey",
-        "margin":"0px"
-    },
-    "containr":{
-        "elemntName":"div",
-        "widt":"calc(100% - 40px)",
-        "heigt":"100%",
-        "display":"flex",
-        "flexDirection":"column",
-        "padding":"20px",
-        "style": {
-
+    "elementType": "div",
+    "className": "container",
+    "children": [
+        {
+            "elementType": "div",
+            "className": "card-one",
+            "children": [
+                {
+                    "elementType": "img",
+                    "src": "images/shop.jpeg",
+                    "className": "image-one"
+                },
+                {
+                    "elementType": "div",
+                    "className": "card-one-subdivision",
+                    "children": [
+                        {
+                            "elementType": "h2",
+                            "textContent": "307144"
+                        },
+                        {
+                            "elementType": "span",
+                            "textContent": "Total Purchace Due"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "elementType": "div",
+            "className": "card-two",
+            "children": [
+                {
+                    "elementType": "div",
+                    "className": "card-two-subdivision",
+                    "children": [
+                        {
+                            "elementType": "h2",
+                            "textContent": "307144"
+                        },
+                        {
+                            "elementType": "span",
+                            "textContent": "Total Purchace Due"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "img",
+                    "src": "images/customer.png",
+                    "className": "image-two"
+                }
+            ]
         }
-    },
-    "card_one":{
-        "elemntName":"div",
-        "widthOfDiv":"25%",
-        "heightOfDiv":"110px",
-        "marginOfDiv":"20px",
-        "divColor":"white",
-        "imag":"images/shop.jpeg",
-        "imagTag":"img",
-        "imagHeight":"70px",
-        "imagWidth":"60px",
-        "imagPadding":"20px",
-        "headingTwoTag":"h2",
-        "headingTwo":"$307144",
-        "spanTag":"span",
-        "span":"Total Purchace Due",
-        "display":"flex",
-        "flexDirections":"column",
-        "borderRadius":"10px"
-    },
-    "card_two":{
-        "elemntName":"div",
-        "widthOfDiv":"25%",
-        "heightOfDiv":"110px",
-        "marginOfDiv":"20px",
-        "divColor":"orange",
-        "fontColor":"white",
-        "marginLeftForWordsDiv":"10px",
-        "marginRightForImage":"10px",
-        "imagTag":"img",
-        "imag":"images/customer.png",
-        "imagHeight":"60px",
-        "imagWidth":"55px",
-        "paddingTop":"20px",
-        "headingTwoTag":"h2",
-        "headingTwo":"100",
-        "spanTag":"span",
-        "span":"Customers",
-        "display":"flex",
-        "flexDirections":"column",
-        "justifyElements":"space-between",
-        "borderRadius":"10px",
-        "transition":".2s",
-        "transform":"scale(1.2)",
-        "transformBack":"scale(1)"
-    }
+    ]
 }
